@@ -36,7 +36,7 @@ function Gruul:OnCombatStart(delay)
 	if self.Options.RangeCheck then
 		DBM_Gui_DistanceFrame_Show();
 	end
-	DBM_Gui_DistanceFrame_SetDistance(15);
+	DBM_Gui_DistanceFrame_SetDistance(20);
 end
 
 function Gruul:OnCombatEnd()
