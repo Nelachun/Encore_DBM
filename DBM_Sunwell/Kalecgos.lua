@@ -197,7 +197,7 @@ function Kal:OnSync(msg, sender)
 				local _, class = UnitClass(getUnitId(name))
 				if (class == "PRIEST" and not DBM.GetBuff(getUnitId(name), GetSpellInfo(15473)))
 				or (class == "PALADIN" and (UnitManaMax(getUnitId(name)) or 0) > 10000)
-				or (class == "DRUID" and UnitPowerType(getUnitId(name)) == 0)
+				or (class == "DRUID" and UnitPowerType(getUnitId(name)) == 0 and not DBM.GetBuff(getUnitId(name), GetSpellInfo(24858)))
 				or (class == "SHAMAN" and (UnitManaMax(getUnitId(name)) or 0) > 10000) then
 					if self.Options.SpecWarnMagic and name == UnitName("player") then
 						self:AddSpecialWarning(DBM_KAL_WARN_HEAL)
