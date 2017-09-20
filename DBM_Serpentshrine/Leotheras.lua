@@ -43,8 +43,8 @@ function Leotheras:OnCombatStart(delay)
 	self:ScheduleSelf(55, "PhaseWarn");
 	self:StartStatusBarTimer(60, "Demon Form", "Interface\\Icons\\Spell_Shadow_Metamorphosis");
 	
-	self:StartStatusBarTimer(18, "Next Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
-	self:ScheduleSelf(14, "WhirlWarn2");	
+	self:StartStatusBarTimer(16, "Next Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
+	self:ScheduleSelf(13, "WhirlWarn2");	
 end
 
 function Leotheras:OnEvent(event, arg1)
