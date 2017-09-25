@@ -9,7 +9,6 @@ Gruul
 Magtheridon
 
 SSC
-
 Leotheras
 1. Changed WW cooldown timer to 15 seconds. (fan)
 
