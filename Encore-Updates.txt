@@ -1,8 +1,8 @@
 Gruul
-1. Changed range indicator to 20 yards.
+1. Changed range indicator to 20 yards. (nelachun)
 
 Leotheras
-1. Changed WW cooldown timer to 15 seconds.
+1. Changed WW cooldown timer to 15 seconds. (fan)
 
 Maiden
-1. Changed Repentence timer to proper cooldown.
+1. Changed Repentence timer to proper cooldown. (nelachun)
