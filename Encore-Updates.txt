@@ -1,0 +1,8 @@
+Gruul
+1. Changed range indicator to 20 yards.
+
+Leotheras
+1. Changed WW cooldown timer to 15 seconds.
+
+Maiden
+1. Changed Repentence timer to proper cooldown.
