@@ -24,6 +24,7 @@ function Tidewalker:OnCombatStart(delay)
 	self.GraveCounter	= 0;
 	
 	self:StartStatusBarTimer(42 - delay, "Murlocs", "Interface\\Icons\\INV_Misc_MonsterHead_02");
+	self:StartStatusBarTimer(21 - delay, "Watery Grave", "Interface\\Icons\\Spell_Shadow_DemonBreath");
 	self:ScheduleSelf(35 - delay, "MurlocWarn");
 end
 
