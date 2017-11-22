@@ -29,7 +29,7 @@ function Gruul:OnCombatStart(delay)
 	self.Grows = 0;	
 	self:ScheduleSelf(104 - delay, "SilenceSoon");
 	self:StartStatusBarTimer(108 - delay, "Silence", "Interface\\Icons\\Spell_Holy_ImprovedResistanceAuras");	
-	self:ScheduleSelf(32 - delay, "SlamSoon");
+	self:ScheduleSelf(30 - delay, "SlamSoon");
 	self:StartStatusBarTimer(35 - delay, "Ground Slam", "Interface\\Icons\\Spell_Nature_ThunderClap");	
 	self:StartStatusBarTimer(30 - delay, "Grow #1", "Interface\\Icons\\Spell_Nature_ShamanRage", true);
 
@@ -56,14 +56,6 @@ function Gruul:OnEvent(event, arg1)
 			end
 			
 			self:StartStatusBarTimer(30, "Grow #"..(self.Grows + 1), "Interface\\Icons\\Spell_Nature_ShamanRage", true);
-		elseif arg1 == DBM_GRUUL_EMOTE_SHATTER then
-			if self.Options.ShatterWarn then
-				self:Announce(DBM_GRUUL_SHATTER_WARN, 3);
-			end
-			
-			self:ScheduleSelf(71, "SlamSoon");
-			self:EndStatusBarTimer("Ground Slam");
-			self:StartStatusBarTimer(76, "Ground Slam", "Interface\\Icons\\Spell_Nature_ThunderClap");
 		end
 	elseif event == "SPELL_AURA_APPLIED" then
 		if arg1.spellId == 36240 and arg1.destName == UnitName("player") and self.Options.SpecWarning then
@@ -79,20 +71,30 @@ function Gruul:OnEvent(event, arg1)
 			self:StartStatusBarTimer(38, "Silence", "Interface\\Icons\\Spell_Holy_ImprovedResistanceAuras");
 		end
 	elseif event == "SPELL_CAST_START" then
-		if arg1.spellId == 33525 then -- 39187?
+		if arg1.spellId == 33525 then -- Slam
 			if self.Options.ShatterWarn then
 				self:Announce(DBM_GRUUL_SHATTER_10WARN, 2);
 			end
 			self:EndStatusBarTimer("Ground Slam");
 			self:StartStatusBarTimer(10, "Shatter", "Interface\\Icons\\Spell_Nature_ThunderClap");
-		end
+			
+		elseif arg1.spellId == 33654 then -- Shatter
+			if self.Options.ShatterWarn then
+				self:Announce(DBM_GRUUL_SHATTER_WARN, 3);
+			end
+			
+			self:ScheduleSelf(48, "SlamSoon");
+			self:EndStatusBarTimer("Ground Slam");
+			self:StartStatusBarTimer(52, "Ground Slam", "Interface\\Icons\\Spell_Nature_ThunderClap");
+		
+		end 
 	elseif event == "SlamSoon" then
 		if self.Options.ShatterWarn then
-			self:Announce(DBM_GRUUL_SHATTER_20WARN, 2);
+			self:Announce(DBM_GRUUL_SHATTER_20WARN, 2); -- "Ground Slam Soon"
 		end
 	elseif event == "SilenceSoon" then
 		if self.Options.SilenceWarn then
-			self:Announce(DBM_GRUUL_SILENCE_SOON_WARN, 1)
+			self:Announce(DBM_GRUUL_SILENCE_SOON_WARN, 1) 
 		end
 	end
 end
