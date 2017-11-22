@@ -44,7 +44,7 @@ function Leotheras:OnCombatStart(delay)
 	self:StartStatusBarTimer(60, "Demon Form", "Interface\\Icons\\Spell_Shadow_Metamorphosis");
 	
 	self:StartStatusBarTimer(15, "Next Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
-	self:ScheduleSelf(12, "WhirlWarn2");	
+	self:ScheduleSelf(10, "WhirlWarn2");	
 end
 
 function Leotheras:OnEvent(event, arg1)
@@ -61,8 +61,7 @@ function Leotheras:OnEvent(event, arg1)
 			self:EndStatusBarTimer("Whirlwind");
 			self:EndStatusBarTimer("Next Whirlwind");
 			self:StartStatusBarTimer(60, "Normal Form", "Interface\\Icons\\INV_Weapon_ShortBlade_07");
---			self:StartStatusBarTimer(15, "Inner Demons in", "Interface\\Icons\\Spell_Shadow_ManaFeed"); -- seems to be on a random timer (but changed to a fixed timer in 2.1.0?)
---			self:ScheduleSelf(10, "DemonsSoon");
+ 			self:StartStatusBarTimer(23, "Inner Demons in", "Interface\\Icons\\Spell_Shadow_ManaFeed");
 
 		elseif arg1 == DBM_LEO_YELL_SHADOW then
 			self.Phase = "normal";
@@ -73,8 +72,8 @@ function Leotheras:OnEvent(event, arg1)
 			self:EndStatusBarTimer("Demon Form");
 			
 			self:StartStatusBarTimer(15, "Next Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
-			self:ScheduleSelf(12, "WhirlWarn2");
-			
+			self:ScheduleSelf(10, "WhirlWarn2");
+		--TODO: Add yell listener for 15% trigger to restart ww timers and clear all other timers (if self.Phase == "demon")
 		elseif string.find(arg1, DBM_LEO_YELL_WHISPER) then
 			if (GetTime() - self.DemonSpam) > 5 then
 				if self.Options.DemonWarn then
@@ -90,14 +89,13 @@ function Leotheras:OnEvent(event, arg1)
 		self.Phase = "normal";
 		
 		self:Announce(DBM_LEO_WARN_NORMAL_PHASE, 3);
-		self:ScheduleSelf(40, "PhaseWarn");
+		self:ScheduleSelf(55, "PhaseWarn");
 		self:EndStatusBarTimer("Normal Form");
 		self:EndStatusBarTimer("Demon Form");
-		self:StartStatusBarTimer(45, "Demon Form", "Interface\\Icons\\Spell_Shadow_Metamorphosis");
+		self:StartStatusBarTimer(60, "Demon Form", "Interface\\Icons\\Spell_Shadow_Metamorphosis");
 		
 		self:StartStatusBarTimer(15, "Next Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
-		
-		self:ScheduleSelf(12, "WhirlWarn2");
+		self:ScheduleSelf(10, "WhirlWarn2");
 		
 	elseif event == "PhaseWarn" then
 		if self.Phase == "normal" then
