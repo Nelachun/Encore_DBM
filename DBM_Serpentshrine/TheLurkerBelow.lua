@@ -46,7 +46,7 @@ function Lurker:OnEvent(event, arg1)
 	if event == "SPELL_DAMAGE" and arg1.spellId == 37363 then
 		self:SendSync("Whirl");
 		
-	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then
+	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then -- Currently not happening on Warmane Outland
 		if arg1 == DBM_LURKER_EMOTE_SPOUT then
 			if self.Options.SpoutWarn then
 				self:Announce(DBM_LURKER_WARN_SPOUT, 3);
@@ -92,6 +92,7 @@ function Lurker:OnEvent(event, arg1)
 		for i = 1, GetNumRaidMembers() do
 			if UnitName("raid"..i.."target") == DBM_LURKER_NAME then
 				foundIt = true;
+				break;
 			end
 		end
 		if foundIt then
