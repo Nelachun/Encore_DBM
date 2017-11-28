@@ -39,9 +39,9 @@ function TerestianIllhoof:OnEvent(event, arg1)
 			local target = arg1.destName
 			if target then
 				self:Announce(string.format(DBM_TI_SACRIFICE_WARN, target), 3);
-				self:StartStatusBarTimer(43, "Sacrifice", "Interface\\Icons\\Spell_Shadow_AntiMagicShell");
+				self:StartStatusBarTimer(30, "Sacrifice", "Interface\\Icons\\Spell_Shadow_AntiMagicShell");
 				self:UnScheduleSelf("SacrificeWarning", "soon");
-				self:ScheduleSelf(41, "SacrificeWarning", "soon");
+				self:ScheduleSelf(28, "SacrificeWarning", "soon");
 			end
 		end
 	end
