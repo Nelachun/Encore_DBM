@@ -102,7 +102,8 @@ DBM_MAG_OPTION_2		= "Announce Heal";
 DBM_MAG_OPTION_3		= "Announce Blast Nova";
 
 DBM_MAG_EMOTE_PULL		= "%s's bonds begin to weaken!";
-DBM_MAG_YELL_PHASE2		= "I... am... unleashed!"
+DBM_MAG_YELL_PHASE2		= "I... am... unleashed!";
+DBM_MAG_YELL_PHASE2_2	= "Thank you for releasing me. Now... die!";
 DBM_MAG_EMOTE_NOVA		= "%s begins to cast Blast Nova!";
 DBM_MAG_CAST_INFERNAL	= "Hellfire Channeler casts Burning Abyssal.";
 DBM_MAG_CAST_HEAL		= "Hellfire Channeler begins to cast Dark Mending.";

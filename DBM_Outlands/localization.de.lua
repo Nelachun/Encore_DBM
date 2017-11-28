@@ -108,7 +108,8 @@
 	DBM_MAG_OPTION_3		= "Drucknova ansagen";
 
 	DBM_MAG_EMOTE_PULL		= "Die Fesseln von %s werden schwächer!";
-	DBM_MAG_YELL_PHASE2		= "Ich... bin... frei!"
+	DBM_MAG_YELL_PHASE2		= "Ich... bin... frei!";
+	DBM_MAG_YELL_PHASE2_2	= "Thank you for releasing me. Now... die!";
 	DBM_MAG_EMOTE_NOVA		= "%s beginnt, Drucknova zu wirken!";
 	DBM_MAG_CAST_INFERNAL	= "Kanalisierer des Höllenfeuers wirkt Brennender Schlund.";
 	DBM_MAG_CAST_HEAL		= "Kanalisierer des Höllenfeuers beginnt Dunkle Besserung zu wirken.";

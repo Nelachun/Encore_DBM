@@ -136,7 +136,8 @@ if (GetLocale() == "zhCN") then
 	DBM_MAG_OPTION_3		= "警报冲击新星";
 
 	DBM_MAG_EMOTE_PULL		= "%s的禁锢开始变弱！";
-	DBM_MAG_YELL_PHASE2		= "我……自由了！"
+	DBM_MAG_YELL_PHASE2		= "我……自由了！";
+	DBM_MAG_YELL_PHASE2_2	= "Thank you for releasing me. Now... die!";
 	DBM_MAG_EMOTE_NOVA		= "%s开始施放冲击新星！";
 	DBM_MAG_CAST_INFERNAL	= "地狱火导魔者施放了深渊燃魔。";
 	DBM_MAG_CAST_HEAL		= "地狱火导魔者开始施放黑暗治愈。";

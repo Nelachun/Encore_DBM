@@ -125,7 +125,8 @@ DBM_MAG_OPTION_2			= "提示補血";
 DBM_MAG_OPTION_3			= "提示衝擊新星";
 
 DBM_MAG_EMOTE_PULL			= "%s的束縛開始變弱!";
-DBM_MAG_YELL_PHASE2			= "我……被……釋放了!"
+DBM_MAG_YELL_PHASE2			= "我……被……釋放了!";
+DBM_MAG_YELL_PHASE2_2	= "Thank you for releasing me. Now... die!";
 DBM_MAG_EMOTE_NOVA			= "%s開始施放衝擊新星!";
 DBM_MAG_CAST_INFERNAL			= "地獄火導魔師施放了燃燒的冥淵火。";
 DBM_MAG_CAST_HEAL			= "地獄火導魔師開始施放黑暗治療。";

@@ -40,18 +40,20 @@ function Mag:OnEvent(event, arg1)
 			self:StartStatusBarTimer(2, "Heal", "Interface\\Icons\\Spell_Shadow_ChillTouch");
 		end
 	elseif event == "CHAT_MSG_MONSTER_YELL" then
-		if arg1 and string.find(arg1, DBM_MAG_YELL_PHASE2) then -- to support stupid german localization :(
-			self:Announce(DBM_MAG_WARN_P2, 3);
-			self:StartStatusBarTimer(54, "Blast Nova", "Interface\\Icons\\Spell_Fire_SealOfFire");
-			self:ScheduleSelf(48, "NovaWarn");
+		if arg1 then
+			if string.find(arg1, DBM_MAG_YELL_PHASE2) or string.find(arg1, DBM_MAG_YELL_PHASE2_2) then -- to support stupid german localization :(
+				self:Announce(DBM_MAG_WARN_P2, 3);
+				self:StartStatusBarTimer(57, "Blast Nova", "Interface\\Icons\\Spell_Fire_SealOfFire");
+				self:ScheduleSelf(52, "NovaWarn");
+			end
 		end
 	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then
 		if arg1 == DBM_MAG_EMOTE_NOVA then
 			if self.Options.WarnNova then
 				self:Announce(DBM_MAG_WARN_NOVA_NOW, 3)
 			end
-			self:StartStatusBarTimer(54, "Blast Nova", "Interface\\Icons\\Spell_Fire_SealOfFire");
-			self:ScheduleSelf(48, "NovaWarn");
+			self:StartStatusBarTimer(57, "Blast Nova", "Interface\\Icons\\Spell_Fire_SealOfFire");
+			self:ScheduleSelf(52, "NovaWarn");
 		end
 	elseif event == "Phase2Warn" and arg1 then
 		self:Announce(string.format(DBM_MAG_PHASE2_WARN, arg1), 2);
