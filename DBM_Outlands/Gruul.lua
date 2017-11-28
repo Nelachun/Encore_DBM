@@ -27,8 +27,8 @@ Gruul:AddBarOption("Silence")
 
 function Gruul:OnCombatStart(delay)
 	self.Grows = 0;	
-	self:ScheduleSelf(104 - delay, "SilenceSoon");
-	self:StartStatusBarTimer(108 - delay, "Silence", "Interface\\Icons\\Spell_Holy_ImprovedResistanceAuras");	
+	self:ScheduleSelf(16 - delay, "SilenceSoon");
+	self:StartStatusBarTimer(20 - delay, "Silence", "Interface\\Icons\\Spell_Holy_ImprovedResistanceAuras");	
 	self:ScheduleSelf(30 - delay, "SlamSoon");
 	self:StartStatusBarTimer(35 - delay, "Ground Slam", "Interface\\Icons\\Spell_Nature_ThunderClap");	
 	self:StartStatusBarTimer(30 - delay, "Grow #1", "Interface\\Icons\\Spell_Nature_ShamanRage", true);
@@ -67,8 +67,8 @@ function Gruul:OnEvent(event, arg1)
 			
 			self:UnScheduleSelf("SilenceSoon");
 			self:EndStatusBarTimer("Silence");
-			self:ScheduleSelf(34, "SilenceSoon");
-			self:StartStatusBarTimer(38, "Silence", "Interface\\Icons\\Spell_Holy_ImprovedResistanceAuras");
+			self:ScheduleSelf(26, "SilenceSoon");
+			self:StartStatusBarTimer(30, "~Silence Cooldown", "Interface\\Icons\\Spell_Holy_ImprovedResistanceAuras");
 		end
 	elseif event == "SPELL_CAST_START" then
 		if arg1.spellId == 33525 then -- Slam
