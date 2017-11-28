@@ -27,7 +27,7 @@ Prince:AddBarOption("Shadow Nova")
 function Prince:OnCombatStart(delay)
 	Prince.Infernals 		= 0;
 	Prince.Phase			= 1;
-	self:StartStatusBarTimer(40 - delay, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
+	self:StartStatusBarTimer(45 - delay, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
 end
 
 function Prince:OnCombatEnd()
@@ -65,17 +65,15 @@ function Prince:OnEvent(event, arg1)
 		end
 	elseif event == "CHAT_MSG_MONSTER_YELL" then
 		if arg1 == DBM_PRINCE_YELL_INF1 or arg1 == DBM_PRINCE_YELL_INF2 then
-			self:ScheduleSelf(11.5, "InfernalSoon");
-			self:ScheduleSelf(18.5, "Infernal");
-			
-			if not self:GetStatusBarTimerTimeLeft("Infernal") then
-				self:StartStatusBarTimer(45, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
+			self.Infernals = self.Infernals + 1;
+			if self.Options.WarnInfernal then
+				self:Announce(string.format(DBM_PRINCE_WARN_INF, self.Infernals), 3);
 			end
-			
-			if self.Phase == 1 then
-				self:UpdateStatusBarTimer("Infernal", 26.5, 45);
+			self:EndStatusBarTimer("Infernal");
+			if self.Phase == 1 or self.Phase == 2 then			
+				self:StartStatusBarTimer(45, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
 			elseif self.Phase == 3 then			
-				self:UpdateStatusBarTimer("Infernal", 4, 22.5);
+				self:StartStatusBarTimer(15, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
 			end
 		
 		elseif arg1 == DBM_PRINCE_YELL_P3 then
@@ -84,20 +82,20 @@ function Prince:OnEvent(event, arg1)
 		elseif arg1 == DBM_PRINCE_YELL_P2 then
 			self:Announce(string.format(DBM_PRINCE_WARN_PHASE, 2), 1);
 		end
-	elseif event == "InfernalSoon" then
-		if self.Options.WarnInfernal then
-			self:Announce(string.format(DBM_PRINCE_WARN_INF_SOON, (self.Infernals + 1)), 2);
-		end
-	elseif event == "Infernal" then
-		self.Infernals = self.Infernals + 1;
-		if self.Options.WarnInfernal then
-			self:Announce(string.format(DBM_PRINCE_WARN_INF, self.Infernals), 3);
-		end
-		self:EndStatusBarTimer("Infernal");
-		if self.Phase == 1 then			
-			self:StartStatusBarTimer(45, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
-		elseif self.Phase == 3 then			
-			self:StartStatusBarTimer(22.5, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
-		end
-	end
+--	elseif event == "InfernalSoon" then
+--		if self.Options.WarnInfernal then
+--			self:Announce(string.format(DBM_PRINCE_WARN_INF_SOON, (self.Infernals + 1)), 2);
+--		end
+--	elseif event == "Infernal" then
+--		self.Infernals = self.Infernals + 1;
+--		if self.Options.WarnInfernal then
+--			self:Announce(string.format(DBM_PRINCE_WARN_INF, self.Infernals), 3);
+--		end
+--		self:EndStatusBarTimer("Infernal");
+--		if self.Phase == 1 then			
+--			self:StartStatusBarTimer(45, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
+--		elseif self.Phase == 3 then			
+--			self:StartStatusBarTimer(15, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
+--		end
+--	end
 end
