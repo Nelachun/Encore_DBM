@@ -126,7 +126,7 @@ DBM_BAR_STYLE_PERL				= "Perl";
 
 
 --Combat messages
-DBM_BOSS_ENGAGED			= "%s engaged. Good luck and have fun! :)";
+DBM_BOSS_ENGAGED			= "%s engaged. Good luck and have fun!";
 DBM_BOSS_SYNCED_BY			= "(received sync command from %s)";
 DBM_BOSS_DOWN				= "%s down after %s!";
 DBM_COMBAT_ENDED			= "Combat ended after %s.";
