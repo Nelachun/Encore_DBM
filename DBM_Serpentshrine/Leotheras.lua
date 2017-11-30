@@ -71,8 +71,8 @@ function Leotheras:OnEvent(event, arg1)
 			self:EndStatusBarTimer("Normal Form");
 			self:EndStatusBarTimer("Demon Form");
 			
-			self:StartStatusBarTimer(15, "Next Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
-			self:ScheduleSelf(10, "WhirlWarn");
+			self:StartStatusBarTimer(13, "First Whirlwind", "Interface\\Icons\\Ability_Whirlwind");
+			self:ScheduleSelf(8, "WhirlWarn");
 		--TODO: Add yell listener for 15% trigger to restart ww timers and clear all other timers (if self.Phase == "demon")
 		elseif string.find(arg1, DBM_LEO_YELL_WHISPER) then
 			if (GetTime() - self.DemonSpam) > 5 then
