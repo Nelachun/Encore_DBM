@@ -27,6 +27,9 @@ Kal:AddOption("WarnPort", true, DBM_KAL_OPTION_PORT_WARN)
 Kal:AddOption("ShowFrame", true, DBM_KAL_OPTION_SHOWFRAME)
 Kal:AddOption("FrameLocked", false, DBM_KAL_MENU_LOCK)
 Kal:AddOption("WarnStrike", false, DBM_KAL_OPTION_STRIKE)
+Kal.Options.FramePoint = "CENTER"
+Kal.Options.FrameX = 150
+Kal.Options.FrameY = -50
 
 
 Kal:AddOption("FrameClassColor", true, DBM_KAL_FRAME_COLORS, function()
@@ -161,7 +164,6 @@ function Kal:OnSync(msg, sender)
 				if class == "WARRIOR"
 				or class == "ROGUE"
 				or class == "HUNTER"
-				or (class == "PALADIN" and (UnitManaMax(getUnitId(name)) or 0) < 10000)
 				or (class == "DRUID" and (UnitPowerType(getUnitId(name)) == 1 or UnitPowerType(getUnitId(name)) == 3))
 				or (class == "SHAMAN" and (UnitManaMax(getUnitId(name)) or 0) < 10000) then
 					if self.Options.SpecWarnMagic and name == UnitName("player") then
@@ -176,7 +178,6 @@ function Kal:OnSync(msg, sender)
 				if class == "WARRIOR"
 				or class == "ROGUE"
 				or class == "HUNTER"
-				or (class == "PALADIN" and (UnitManaMax(getUnitId(name)) or 0) < 10000)
 				or (class == "DRUID" and (UnitPowerType(getUnitId(name)) == 1 or UnitPowerType(getUnitId(name)) == 3))
 				or (class == "SHAMAN" and (UnitManaMax(getUnitId(name)) or 0) < 10000) then
 					if self.Options.SpecWarnMagic and name == UnitName("player") then
@@ -196,8 +197,8 @@ function Kal:OnSync(msg, sender)
 			elseif spellType == "Heal" then -- Healing done by spells and effects increased by 100%.
 				local _, class = UnitClass(getUnitId(name))
 				if (class == "PRIEST" and not DBM.GetBuff(getUnitId(name), GetSpellInfo(15473)))
-				or (class == "PALADIN" and (UnitManaMax(getUnitId(name)) or 0) > 10000)
-				or (class == "DRUID" and UnitPowerType(getUnitId(name)) == 0 and not DBM.GetBuff(getUnitId(name), GetSpellInfo(24858)))
+				or class == "PALADIN"
+				or (class == "DRUID" and UnitPowerType(getUnitId(name)) == 0)
 				or (class == "SHAMAN" and (UnitManaMax(getUnitId(name)) or 0) > 10000) then
 					if self.Options.SpecWarnMagic and name == UnitName("player") then
 						self:AddSpecialWarning(DBM_KAL_WARN_HEAL)

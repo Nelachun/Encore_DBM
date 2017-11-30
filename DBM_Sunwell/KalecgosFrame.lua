@@ -157,6 +157,16 @@ function Kal:CreateFrame()
 		lastEntry = nil
 	end
 	DBMKalFrameDrag:Show()
+	if self.Options.FramePoint then
+		DBMKalFrameDrag:SetPoint(self.Options.FramePoint, nil, self.Options.FramePoint, self.Options.FrameX, self.Options.FrameY)
+	end
+end
+
+function Kal:SaveFramePosition()
+	local point, _, _, x, y = DBMKalFrameDrag:GetPoint()
+	self.Options.FramePoint = point
+	self.Options.FrameX = x
+	self.Options.FrameY = y
 end
 
 function Kal:DestroyFrame()

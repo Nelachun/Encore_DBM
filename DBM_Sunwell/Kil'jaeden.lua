@@ -93,6 +93,8 @@ function Kil:OnEvent(event, args)
 			self:SendSync("Darkness")
 --		elseif args.spellId == 45641 then
 --			self:SendSync("BloomInc")
+		elseif args.spellId == 45737 then
+			self:SendSync("Darts")
 		end
 	end
 end
@@ -214,5 +216,12 @@ function Kil:OnSync(msg)
 		if self.Options.WarnReflections then
 			self:Announce(DBM_KIL_WARN_REFLECTIONS, 3)
 		end
+		
+	elseif msg == "Darts" then
+		self:StartStatusBarTimer(20, "Flame Darts", 45740)
+		if self.Options.WarnDarts then
+			self:Announce(DBM_KIL_WARN_DARTS, 3)			
+			self:ScheduleAnnounce(15, DBM_KIL_WARN_DARTS_SOON, 1)
+		end			
 	end
 end

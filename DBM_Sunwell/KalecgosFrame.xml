@@ -21,9 +21,6 @@
 			</Layer>
 		</Layers>
 		<Scripts>
-			<OnLoad>
-				this:SetUserPlaced(1)
-			</OnLoad>
 			<OnMouseDown>
 				if arg1 == "LeftButton" and not DBM.AddOns.Kal.Options.FrameLocked then
 					this:StartMoving()
@@ -31,6 +28,7 @@
 			</OnMouseDown>
 			<OnMouseUp>
 				this:StopMovingOrSizing()
+				DBM.AddOns.Kal:SaveFramePosition()
 				if arg1 == "RightButton" then
 					UIDropDownMenu_Initialize(DBMKalMenu, DBM.AddOns.Kal.InitializeMenu, "MENU")
 					ToggleDropDownMenu(1, nil, DBMKalMenu, "DBMKalMenu", 30, 50)
@@ -38,7 +36,7 @@
 			</OnMouseUp>
 			<OnShow>
 				DBM.AddOns.Kal:CreateFrame()
-			</OnShow>			
+			</OnShow>
 		</Scripts>
 	</Frame>
 	<Frame name="DBMKalMenu" parent="DBMKalFrameDrag" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
@@ -125,16 +123,26 @@
 						<Scripts>
 							<OnMouseDown>
 								if arg1 == "LeftButton" and not DBM.AddOns.Kal.Options.FrameLocked then
+									this.moving = true
 									DBMKalFrameDrag:StartMoving()
 								end
 							</OnMouseDown>
 							<OnMouseUp>
+								this.moving = false
 								DBMKalFrameDrag:StopMovingOrSizing()
+								DBM.AddOns.Kal:SaveFramePosition()
 								if arg1 == "RightButton" then
 									UIDropDownMenu_Initialize(DBMKalMenu, DBM.AddOns.Kal.InitializeMenu, "MENU")
 									ToggleDropDownMenu(1, nil, DBMKalMenu, "DBMKalMenu", 30, 50)
 								end
 							</OnMouseUp>
+							<OnHide>
+								if this.moving then
+									DBM.AddOns.Kal:SaveFramePosition()
+									DBMKalFrameDrag:StopMovingOrSizing()
+									this.moving = false
+								end
+							</OnHide>
 						</Scripts>
 					</Button>
 				</Frames>
@@ -153,16 +161,24 @@
 		<Scripts>
 			<OnMouseDown>
 				if arg1 == "LeftButton" and not DBM.AddOns.Kal.Options.FrameLocked then
+					this.moving = true
 					DBMKalFrameDrag:StartMoving()
 				end
 			</OnMouseDown>
 			<OnMouseUp>
+				this.moving = false
 				DBMKalFrameDrag:StopMovingOrSizing()
 				if arg1 == "RightButton" then
 					UIDropDownMenu_Initialize(DBMKalMenu, DBM.AddOns.Kal.InitializeMenu, "MENU")
 					ToggleDropDownMenu(1, nil, DBMKalMenu, "DBMKalMenu", 30, 50)
 				end
 			</OnMouseUp>
+			<OnHide>
+				if this.moving then
+					DBMKalFrameDrag:StopMovingOrSizing()
+					this.moving = false
+				end
+			</OnHide>
 		</Scripts>
 	</Frame>
 </Ui>	

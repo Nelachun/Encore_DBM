@@ -14,6 +14,7 @@ Twins:AddOption("WarnConflagration", true, DBM_TWINS_OPTION_CONFLAG)
 Twins:AddOption("WhisperConflag", true, DBM_TWINS_OPTION_CONFLAG2)
 Twins:AddOption("SpecWarnConflag", true, DBM_TWINS_OPTION_CONFLAG3)
 Twins:AddOption("IconConflag", true, DBM_TWINS_OPTION_CONFLAG4)
+Twins:AddOption("SoundWarnConflag", true, DBM_TWINS_OPTION_CONFLAG5)
 Twins:AddOption("WarnNova", true, DBM_TWINS_OPTION_NOVA)
 Twins:AddOption("WhisperNova", true, DBM_TWINS_OPTION_NOVA2)
 Twins:AddOption("SpecWarnNova", true, DBM_TWINS_OPTION_NOVA3)
@@ -116,8 +117,14 @@ function Twins:OnSync(msg)
 		if self.Options.WhisperConflag then
 			self:SendHiddenWhisper(DBM_TWINS_WHISPER_CONFLAG, msg)
 		end
-		if msg == UnitName("player") and self.Options.SpecWarnConflag then
-			self:AddSpecialWarning(DBM_TWINS_WHISPER_CONFLAG)
+		if msg == UnitName("player") then
+			if self.Options.SoundWarnConflag then
+				PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav")
+				PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
+			end
+			if self.Options.SpecWarnConflag then
+				self:AddSpecialWarning(DBM_TWINS_WHISPER_CONFLAG)
+			end
 		end
 		if self.Options.IconConflag then
 			self:SetIcon(msg, 8)

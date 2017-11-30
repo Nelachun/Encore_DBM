@@ -126,15 +126,23 @@
 							<OnMouseDown>
 								if arg1 == "LeftButton" and not DBM.AddOns.Kil.Options.FrameLocked then
 									DBMKilFrameDrag:StartMoving()
+									this.moving = true
 								end
 							</OnMouseDown>
 							<OnMouseUp>
+								this.moving = false
 								DBMKilFrameDrag:StopMovingOrSizing()
 								if arg1 == "RightButton" then
 									UIDropDownMenu_Initialize(DBMKilMenu, DBM.AddOns.Kil.InitializeMenu, "MENU")
 									ToggleDropDownMenu(1, nil, DBMKilMenu, "DBMKilMenu", 30, 50)
 								end
 							</OnMouseUp>
+							<OnHide>
+								if this.moving then
+									this.moving = false
+									DBMKilFrameDrag:StopMovingOrSizing()
+								end
+							</OnHide>
 						</Scripts>
 					</Button>
 				</Frames>
