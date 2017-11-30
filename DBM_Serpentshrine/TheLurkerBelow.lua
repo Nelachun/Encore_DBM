@@ -30,8 +30,8 @@ function Lurker:OnCombatStart(delay)
 	self:ScheduleSelf(75 - delay, "SubmergeWarning", 15);
 	self:ScheduleSelf(85 - delay, "SubmergeWarning", 5);
 	
-	self:StartStatusBarTimer(42 - delay, "Spout", "Interface\\Icons\\Spell_Frost_ChillingBlast");
-	self:ScheduleSelf(37 - delay, "SpoutWarning");
+	self:StartStatusBarTimer(40 - delay, "Spout", "Interface\\Icons\\Spell_Frost_ChillingBlast");
+	self:ScheduleSelf(35 - delay, "SpoutWarning");
 
 	self:StartStatusBarTimer(18 - delay, "Whirl", "Interface\\Icons\\Ability_Whirlwind");
 	self:ScheduleSelf(14 - delay, "WhirlWarning");
@@ -81,11 +81,11 @@ function Lurker:OnEvent(event, arg1)
 	elseif event == "Emerge" then
 		self.Submerged = false;
 		self:Announce(DBM_LURKER_WARN_EMERGE, 3);
-		self:StartStatusBarTimer(90, "Submerge", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow");
+		self:StartStatusBarTimer(115, "Submerge", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow");
 		self:EndStatusBarTimer("Emerge");
-		self:ScheduleSelf(60, "SubmergeWarning", 30);
-		self:ScheduleSelf(75, "SubmergeWarning", 15);
-		self:ScheduleSelf(85, "SubmergeWarning", 5);
+		self:ScheduleSelf(85, "SubmergeWarning", 30);
+		self:ScheduleSelf(100, "SubmergeWarning", 15);
+		self:ScheduleSelf(110, "SubmergeWarning", 5);
 		
 	elseif event == "CheckBack" then
 		local foundIt;
