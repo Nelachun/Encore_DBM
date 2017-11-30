@@ -7,6 +7,17 @@
 -- Changes --
 -- ------- --
 --
+--  v3.22
+--  localization/ruRU: added basic support for russian clients
+--  Sunwell/Kalecgos: fixed a bug that could cause the spectral realm frame to stick to your cursor
+--  Sunwell/Kalecgos: the spectral realm frame will now remember its position
+--  Sunwell/Eredar Twins: added a sound warning for conflag (PVPFlagTaken + HoodWolfTransformPlayer01 ("Run away little girl!"))
+--  cleaned up some localization files by removing old unused strings
+--  some minor tweaks and bug fixes
+--
+--  v3.21
+--  updated the void reaver mod
+--
 --  v3.20
 --  updated M'uru mod
 --  added Kil'jaeden mod
@@ -294,7 +305,6 @@
 
 
 
--- parts of this file should be rewritten!
 
 if not math.mod and math.fmod then
 	math.mod = math.fmod
@@ -316,7 +326,7 @@ DBM = {}
 DBM.Version = "3.22" -- used for "a new version of dbm is available"-spam
 DBMGUI_VERSION = "3.02"
 
-DBM_REVISION = tonumber(("$Revision: 274 $"):sub(12, -3) or 0) + 783 -- 783 = revision number from the old SVN repository
+DBM_REVISION = tonumber(("$Revision: 296 $"):sub(12, -3) or 0) + 783 -- 783 = revision number from the old SVN repository
 DBM_VERSION = "3.22" -- this version is used for /dbm ver commands
 DBM.BetaVersion = DBM_VERSION.." (rev "..DBM_REVISION..")" -- this will be shown in the GUI if set
 
@@ -4107,7 +4117,7 @@ end
 ------------------
 function DBM.Capitalize(text, xall)
 	text = tostring(text);
-	if xall == nil and (GetLocale() == "krKR" or GetLocale() == "zhCN" or GetLocale() == "zhTW") then
+	if xall == nil and (GetLocale() == "krKR" or GetLocale() == "zhCN" or GetLocale() == "zhTW"  or GetLocale() == "ruRU") then
 		return text;
 	else
 		return string.upper(string.sub(text, 0, 1))..string.sub(text, 2);
