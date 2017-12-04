@@ -27,7 +27,9 @@ Prince:AddBarOption("Shadow Nova")
 function Prince:OnCombatStart(delay)
 	Prince.Infernals 		= 0;
 	Prince.Phase			= 1;
-	self:StartStatusBarTimer(45 - delay, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
+	--delay was causing problems
+	--self:StartStatusBarTimer(45 - delay, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
+	self:StartStatusBarTimer(45, "Infernal", "Interface\\Icons\\Spell_Shadow_SummonInfernal");
 end
 
 function Prince:OnCombatEnd()
