@@ -49,12 +49,12 @@ function Nightbane:OnEvent(event, arg1)
 		if arg1 == DBM_NB_YELL_AIR then
 			self.LastSmokeTarget = nil;
 			self:Announce(DBM_NB_AIR_WARN, 1);
-			self:ScheduleSelf(28, "DownFIRSTWarn");
-			self:StartStatusBarTimer(43, "Air Phase", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow");
+			self:ScheduleSelf(25, "DownFIRSTWarn");
+			self:StartStatusBarTimer(40, "Air Phase", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow");
 		elseif (arg1 == DBM_NB_YELL_GROUND or arg1 == DBM_NB_YELL_GROUND2) and ((GetTime() - self.LastYell) > 45) then -- he sometimes yells twice...(but seems to be fixed? not sure)
 			self.LastYell = GetTime();
 			self:EndStatusBarTimer("Air Phase")
-		self:StartStatusBarTimer(5, "Air Phase", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow");
+			self:StartStatusBarTimer(5, "Air Phase", "Interface\\AddOns\\DBM_API\\Textures\\CryptFiendBurrow");
 			self:Announce(DBM_NB_DOWN_WARN2, 1); --Ground Phase in 5s
 		end
 		
