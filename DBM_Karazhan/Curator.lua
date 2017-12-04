@@ -21,9 +21,9 @@ Curator:AddOption("RangeCheck", true, DBM_MOV_OPTION_1, function()
 end);
 
 function Curator:OnCombatStart()
-	self:StartStatusBarTimer(109, "Next Evocation", "Interface\\Icons\\Spell_Nature_Purge");
-	self:ScheduleSelf(106, "EvoWarn", "soon");
-	self:ScheduleAnnounce(49, DBM_CURA_EVO_1MIN, 1)
+	self:StartStatusBarTimer(101, "First Evocation", "Interface\\Icons\\Spell_Nature_Purge");
+	self:ScheduleSelf(98, "EvoWarn", "soon");
+	self:ScheduleAnnounce(41, DBM_CURA_EVO_1MIN, 1)
 	
 	if self.Options.RangeCheck then
 		DBM_Gui_DistanceFrame_Show();
