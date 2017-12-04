@@ -47,11 +47,11 @@ function Tidewalker:OnEvent(event, arg1)
 		if self.Options.Grave and self.GraveCounter > 0 and self.GraveCounter < 4 then
 			local targetString = "";
 			if self.GraveCounter == 1 then
-				targetString = ">"..self.GraveTargets[1].."<";
+				targetString = "<"..self.GraveTargets[1]..">";
 			elseif self.GraveCounter == 2 then
-				targetString = ">"..self.GraveTargets[1].."< "..DBM_AND.." >"..self.GraveTargets[2].."<";
+				targetString = "<"..self.GraveTargets[1].."> "..DBM_AND.." <"..self.GraveTargets[2]..">";
 			elseif self.GraveCounter == 3 then
-				targetString = ">"..self.GraveTargets[1].."<, >"..self.GraveTargets[2].."< "..DBM_AND.." >"..self.GraveTargets[3].."<";
+				targetString = "<"..self.GraveTargets[1]..">, <"..self.GraveTargets[2].."> "..DBM_AND.." <"..self.GraveTargets[3]..">";
 			end
 			self:Announce(string.format(DBM_TIDEWALKER_WARN_GRAVE, targetString), 2);
 		end
@@ -85,7 +85,7 @@ function Tidewalker:OnSync(msg)
 		self.GraveCounter = self.GraveCounter + 1;
 		if self.GraveCounter == 4 then
 			if self.Options.Grave then
-				local targetString = ">"..self.GraveTargets[1].."<, >"..self.GraveTargets[2].."<, >"..self.GraveTargets[3].."< "..DBM_AND.." >"..self.GraveTargets[4].."<";
+				local targetString = "<"..self.GraveTargets[1]..">, <"..self.GraveTargets[2]..">, <"..self.GraveTargets[3].."> "..DBM_AND.." <"..self.GraveTargets[4]..">";
 				self:Announce(string.format(DBM_TIDEWALKER_WARN_GRAVE, targetString), 2);
 			end
 			self.GraveCounter = 0;
