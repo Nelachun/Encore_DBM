@@ -35,7 +35,7 @@ function Tidewalker:OnCombatEnd()
 end
 
 function Tidewalker:OnEvent(event, arg1)
-	if event == "SPELL_AURA_APPLIED" then
+	if event == "SPELL_AURA_APPLIED" then -- Watery Grave
 		if arg1.spellId == 37850
 		or arg1.spellId == 38023
 		or arg1.spellId == 38024
@@ -73,7 +73,6 @@ function Tidewalker:OnEvent(event, arg1)
 		end
 		
 	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then
-
 		if arg1 == DBM_TIDEWALKER_EMOTE_GLOBES then
 			self:Announce(DBM_TIDEWALKER_WARN_GLOBES, 3);
 		end
