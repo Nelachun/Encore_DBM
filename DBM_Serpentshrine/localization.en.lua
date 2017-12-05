@@ -39,6 +39,8 @@ DBM_TIDEWALKER_OPTION_1				= "Announce Murlocs";
 DBM_TIDEWALKER_OPTION_2				= "Announce Watery Grave";
 
 DBM_TIDEWALKER_YELL_PULL			= "Flood of the deep, take you!";
+DBM_TIDEWALKER_YELL_MURLOC_1		= "By the Tides!";
+DBM_TIDEWALKER_YELL_MURLOC_2		= "Destroy them, my subjects!";
 DBM_TIDEWALKER_EMOTE_MURLOCS		= "The violent earthquake has alerted nearby Murlocs!";
 DBM_TIDEWALKER_EMOTE_GLOBES			= "%s summons watery globules!";
 DBM_TIDEWALKER_EMOTE_GRAVE			= "%s sends his enemies to their watery graves!";

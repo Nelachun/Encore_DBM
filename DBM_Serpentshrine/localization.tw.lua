@@ -45,6 +45,8 @@ DBM_TIDEWALKER_OPTION_1				= "提示魚人";
 DBM_TIDEWALKER_OPTION_2				= "提示水墓穴";
 
 DBM_TIDEWALKER_YELL_PULL			= "深海的洪水，淹沒吧!";
+DBM_TIDEWALKER_YELL_MURLOC_1		= "By the Tides!";
+DBM_TIDEWALKER_YELL_MURLOC_2		= "Destroy them, my subjects!";
 DBM_TIDEWALKER_EMOTE_MURLOCS			= "強烈的地震改變了附近的魚人!";
 DBM_TIDEWALKER_EMOTE_GLOBES			= "%s召喚出水珠!";
 DBM_TIDEWALKER_EMOTE_GRAVE			= "%s將敵人放進他們的水墓穴中!";

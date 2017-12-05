@@ -35,6 +35,8 @@
 	DBM_TIDEWALKER_OPTION_1				= "Murlocs ansagen";
 	DBM_TIDEWALKER_OPTION_2				= "Nasses Grab ansagen";
 	DBM_TIDEWALKER_YELL_PULL			= "Die Fluten der Tiefen werden euch verschlingen."
+	DBM_TIDEWALKER_YELL_MURLOC_1		= "By the Tides!";
+	DBM_TIDEWALKER_YELL_MURLOC_2		= "Destroy them, my subjects!";
 	DBM_TIDEWALKER_EMOTE_MURLOCS		= "Das heftige Erdbeben hat nahe Murlocs alarmiert!";
 	DBM_TIDEWALKER_EMOTE_GRAVE			= "%s schickt seine Feinde in ihr nasses Grab!";
 	DBM_TIDEWALKER_EMOTE_GLOBES			= "%s beschwört Wasserkugeln!";
