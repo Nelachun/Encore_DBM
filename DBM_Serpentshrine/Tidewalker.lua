@@ -63,10 +63,12 @@ function Tidewalker:OnEvent(event, arg1)
 			if self.Options.Murlocs then
 				self:Announce(DBM_TIDEWALKER_WARN_MURLOCS, 3);
 			end
+			self:EndStatusBarTimer("Murlocs");
 			self:StartStatusBarTimer(50, "Murlocs", "Interface\\Icons\\INV_Misc_MonsterHead_02");
 			self:UnScheduleSelf("MurlocWarn");
 			self:ScheduleSelf(45, "MurlocWarn");
 		elseif arg1 == DBM_TIDEWALKER_EMOTE_GRAVE then
+			self:EndStatusBarTimer("Watery Grave");
 			self:StartStatusBarTimer(30, "Watery Grave", "Interface\\Icons\\Spell_Shadow_DemonBreath");
 		elseif arg1 == DBM_TIDEWALKER_EMOTE_GLOBES then
 			self:Announce(DBM_TIDEWALKER_WARN_GLOBES, 3);
