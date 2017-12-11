@@ -11,8 +11,8 @@ Tidewalker:RegisterCombat("YELL", DBM_TIDEWALKER_YELL_PULL);
 Tidewalker:AddOption("Murlocs", true, DBM_TIDEWALKER_OPTION_1);
 Tidewalker:AddOption("Grave", false, DBM_TIDEWALKER_OPTION_2);
 
-Tidewalker:AddBarOption("Murlocs")
-Tidewalker:AddBarOption("Watery Grave")
+Tidewalker:AddBarOption("Murlocs");
+Tidewalker:AddBarOption("Watery Grave");
 
 Tidewalker:RegisterEvents(
 	"CHAT_MSG_RAID_BOSS_EMOTE",
@@ -41,7 +41,7 @@ function Tidewalker:OnEvent(event, arg1)
 		or arg1.spellId == 38024
 		or arg1.spellId == 38025
 		or arg1.spellId == 38049 then -- ???
-			self:SendSync(tostring(arg1.destName))
+			self:SendSync(tostring(arg1.destName));
 			self:EndStatusBarTimer("Watery Grave");
 			self:StartStatusBarTimer(30, "Watery Grave", "Interface\\Icons\\Spell_Shadow_DemonBreath");
 		end
