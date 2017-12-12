@@ -42,8 +42,6 @@ function Tidewalker:OnEvent(event, arg1)
 		or arg1.spellId == 38025
 		or arg1.spellId == 38049 then -- ???
 			self:SendSync(tostring(arg1.destName));
-			self:EndStatusBarTimer("Watery Grave");
-			self:StartStatusBarTimer(30, "Watery Grave", "Interface\\Icons\\Spell_Shadow_DemonBreath");
 		end
 		
 	elseif event == "GraveCheck" then
@@ -61,8 +59,8 @@ function Tidewalker:OnEvent(event, arg1)
 		self.GraveCounter = 0;
 		self.GraveTargets = {};
 		
-	elseif event = "CHAT_MSG_MONSTER_YELL" then
-		if arg1 == DBM_TIDEWALKER_YELL_MURLOC_1 or arg1 == DBM_TIDEWALKER_YELL_MURLOC_2 then
+	elseif event == "CHAT_MSG_MONSTER_YELL" then
+		if arg1 == DBM_TIDEWALKER_YELL_MURLOC_1 or arg1 == DBM_TIDEWALKER_YELL_MURLOC_2 then -- Spawn Murlocs
 			if self.Options.Murlocs then
 				self:Announce(DBM_TIDEWALKER_WARN_MURLOCS, 3);
 			end
@@ -70,6 +68,10 @@ function Tidewalker:OnEvent(event, arg1)
 			self:StartStatusBarTimer(50, "Murlocs", "Interface\\Icons\\INV_Misc_MonsterHead_02");
 			self:UnScheduleSelf("MurlocWarn");
 			self:ScheduleSelf(45, "MurlocWarn");
+			
+		elseif arg1 == DBM_TIDEWALKER_YELL_GRAVES_1 or arg1 == DBM_TIDEWALKER_YELL_GRAVES_2 then -- Watery graves
+			self:EndStatusBarTimer("Watery Grave");
+			self:StartStatusBarTimer(30, "Watery Grave", "Interface\\Icons\\Spell_Shadow_DemonBreath");
 		end
 		
 	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then

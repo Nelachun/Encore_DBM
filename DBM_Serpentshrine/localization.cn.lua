@@ -57,7 +57,9 @@ if (GetLocale() == "zhCN") then
 
 	DBM_TIDEWALKER_YELL_PULL			= "深渊中的洪水会淹没你们！";
 	DBM_TIDEWALKER_YELL_MURLOC_1		= "By the Tides!";
-	DBM_TIDEWALKER_YELL_MURLOC_2		= "Destroy them, my subjects!";
+	DBM_TIDEWALKER_YELL_MURLOC_2		= "Destroy them, my subjects!";	
+	DBM_TIDEWALKER_YELL_GRAVE_1			= "Soon it will be finished!";
+	DBM_TIDEWALKER_YELL_GRAVE_2			= "There is nowhere to hide!";
 	DBM_TIDEWALKER_EMOTE_MURLOCS		= "猛烈的地震警告了附近的鱼人们！";
 	DBM_TIDEWALKER_EMOTE_GLOBES			= "%s召唤了水泡！";
 	DBM_TIDEWALKER_EMOTE_GRAVE			= "%s把他的敌人送入了水下的坟墓！";
