@@ -62,7 +62,7 @@ function Tidewalker:OnEvent(event, arg1)
 		self.GraveTargets = {};
 		
 	elseif event = "CHAT_MSG_MONSTER_YELL" then
-		if string.find(arg1, DBM_TIDEWALKER_YELL_MURLOC_1) or string.find(arg1, DBM_TIDEWALKER_YELL_MURLOC_2) then
+		if arg1 == DBM_TIDEWALKER_YELL_MURLOC_1 or arg1 == DBM_TIDEWALKER_YELL_MURLOC_2 then
 			if self.Options.Murlocs then
 				self:Announce(DBM_TIDEWALKER_WARN_MURLOCS, 3);
 			end
