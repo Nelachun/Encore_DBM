@@ -46,18 +46,18 @@ function Lurker:OnEvent(event, arg1)
 	if event == "SPELL_DAMAGE" and arg1.spellId == 37363 then
 		self:SendSync("Whirl");
 		
-	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then -- Currently not happening on Warmane Outland
-		if arg1 == DBM_LURKER_EMOTE_SPOUT then
-			if self.Options.SpoutWarn then
-				self:Announce(DBM_LURKER_WARN_SPOUT, 3);
-			end
-			
-			self:ScheduleSelf(22, "NextSpout");
-			self:EndStatusBarTimer("Whirl");
-			self:StartStatusBarTimer(22, "Spout", "Interface\\Icons\\Spell_Frost_ChillingBlast");
-			self:UnScheduleSelf("WhirlWarning");
-			self:UnScheduleSelf("SpoutWarning");
+	elseif event == "CHAT_MSG_RAID_BOSS_EMOTE" then -- Currently not happening on Warmane Outland (triggere not working emote is)
+		--if arg1 == DBM_LURKER_EMOTE_SPOUT then  -- unnescessary there's only one emote...
+		if self.Options.SpoutWarn then
+			self:Announce(DBM_LURKER_WARN_SPOUT, 3);
 		end
+		
+		self:ScheduleSelf(22, "NextSpout");
+		self:EndStatusBarTimer("Whirl");
+		self:StartStatusBarTimer(22, "Spout", "Interface\\Icons\\Spell_Frost_ChillingBlast");
+		self:UnScheduleSelf("WhirlWarning");
+		self:UnScheduleSelf("SpoutWarning");
+		--end
 		
 	elseif event == "SpoutWarning" and self.Options.SpoutWarn then
 		self:Announce(DBM_LURKER_WARN_SPOUT_SOON, 2);
